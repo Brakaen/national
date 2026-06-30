@@ -6,8 +6,7 @@ const Navbar = () => {
   const [productsOpen, setProductsOpen] = useState(false);
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
-
-  return (
+ return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="bg-blue-900 text-white text-sm py-5 px-8 flex justify-between items-center">
         <span>✉ info@nationalprofile.com</span>
