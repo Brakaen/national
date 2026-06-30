@@ -22,8 +22,8 @@ export const products = {
           headers: ["Code", "Thickness/t (MM)", "A", "B", "C", "D", "Length (LM)", "Pack (Pcs/Pack)"],
           rows: [
             ["22 FC 28", "0.37", "66", "35", "22.5", "11", "3.0", "25"],
-            // mela rows screenshot la kaata mudila, full table irundha kuduthal
-          ],
+            
+        ],
         },
       },
       {
