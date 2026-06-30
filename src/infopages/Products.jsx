@@ -31,7 +31,6 @@ const Products = () => {
     { label: "Home", path: "/" },
     { label: "Products" },
   ];
-
   return (
     <div className="bg-white min-h-screen">
       {/* Banner */}
