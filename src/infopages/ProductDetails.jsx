@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
-import { products } from "./productsData";
+import { products } from "./productsdata";
 
 const ProductDetails = () => {
   const { id } = useParams();
