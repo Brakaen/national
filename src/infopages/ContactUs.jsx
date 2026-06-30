@@ -149,7 +149,7 @@ const ContactUs = () => {
             </form>
           </div>
 
-          {/* வலது பக்கம்: Google Map */}
+        
           <div className="w-full h-[450px] rounded-lg overflow-hidden border border-gray-200 shadow-sm mt-10 md:mt-0">
             <iframe
               title="National Profile Factory Location Map"
