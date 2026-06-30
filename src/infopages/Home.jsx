@@ -128,30 +128,6 @@ const features = [
 
 // ── Styles ────────────────────────────────────────────
 const s = {
-  // ── Breadcrumb Styles ──
-  breadcrumbBar: {
-    padding: '12px 4rem',
-    background: '#f8fafc',
-    borderBottom: '1px solid #e2e8f0',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    fontSize: '13px',
-    fontFamily: 'sans-serif',
-  },
-  breadcrumbLink: {
-    color: '#cc2929',
-    textDecoration: 'none',
-    fontWeight: '500',
-  },
-  breadcrumbSeparator: {
-    color: '#94a3b8',
-  },
-  breadcrumbActive: {
-    color: '#1a2b7a',
-    fontWeight: '600',
-  },
-
   bannerSlider: {
     background: '#1a2b7a',
     display: 'flex',
@@ -385,7 +361,7 @@ const s = {
 // ── Component ─────────────────────────────────────────
 const Home = () => {
   const [current, setCurrent] = useState(0);
- const prev = () => setCurrent((c) => (c - 1 + sliderProducts.length) % sliderProducts.length);
+  const prev = () => setCurrent((c) => (c - 1 + sliderProducts.length) % sliderProducts.length);
   const next = () => setCurrent((c) => (c + 1) % sliderProducts.length);
   const active = sliderProducts[current];
 
@@ -412,15 +388,6 @@ const Home = () => {
             <button key={i} onClick={() => setCurrent(i)} style={s.dot(i === current)} />
           ))}
         </div>
-      </div>
-
-      {/* ── Dynamic Breadcrumb Bar ── */}
-      <div style={s.breadcrumbBar}>
-        <a href="/" style={s.breadcrumbLink}>Home</a>
-        <span style={s.breadcrumbSeparator}>/</span>
-        <a href="#products-section" style={s.breadcrumbLink}>Products</a>
-        <span style={s.breadcrumbSeparator}>/</span>
-        <span style={s.breadcrumbActive}>{active.title}</span>
       </div>
 
       {/* ── Our Goal Section ── */}
