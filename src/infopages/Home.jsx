@@ -385,8 +385,7 @@ const s = {
 // ── Component ─────────────────────────────────────────
 const Home = () => {
   const [current, setCurrent] = useState(0);
-
-  const prev = () => setCurrent((c) => (c - 1 + sliderProducts.length) % sliderProducts.length);
+ const prev = () => setCurrent((c) => (c - 1 + sliderProducts.length) % sliderProducts.length);
   const next = () => setCurrent((c) => (c + 1) % sliderProducts.length);
   const active = sliderProducts[current];
 
