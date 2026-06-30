@@ -19,7 +19,6 @@ const productData = {
     desc: "Durable trays for organized cable routing in commercial and industrial buildings.",
   },
 };
-
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
