@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import WhatsAppButton from "./components/WhatsAppButton";
 import Home from "./infopages/Home";
 import AboutUs from "./infopages/AboutUs";
 import Products from "./infopages/Products";
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
+      <WhatsAppButton />
     </BrowserRouter>
   );
 };
