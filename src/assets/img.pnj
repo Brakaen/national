@@ -1,0 +1,50 @@
+const products = [
+  {
+    name: "False Ceiling Suspension System (FC)",
+    description:
+      "The furring system is easy to assemble and is mostly used for areas that need smooth ceiling with gypsum sheets without joints and where services are to be concealed.",
+    img: "https://nationalprofile.com/assets/img/false-ceiling.png",
+  },
+  {
+    name: "Drywall Partition System (RNR)",
+    description:
+      "Drywall partition system is specifically designed for the partitions with Gypsum Board or other types of cladding sheets for residential and commercial constructions.",
+    img: "https://nationalprofile.com/assets/img/products/drywall-partition-system-product.png",
+  },
+  {
+    name: "G.I Lintels",
+    description:
+      "Steel Lintel used in wall construction to replace conventional casting of concrete lintels over door, window or similar openings. Lightweight and meets ASTM A653 standards.",
+    img: "https://nationalprofile.com/assets/img/products/gi-lintels.png",
+  },
+  {
+    name: "C Truss Channels",
+    description:
+      "Manufactured using Hot Dipped Galvanized Steel Coils. Ideal mechanical support frame for cable management, solar panel fixing, and storing racks.",
+    img: "https://nationalprofile.com/assets/img/products/c-truss-channels.png",
+  },
+  {
+    name: "Corrugated Roofing Sheet",
+    description:
+      "Easy to install, crimped curved sheets provide versatility and creativity that bring new and refreshing design to industrial and domestic buildings.",
+    img: "https://nationalprofile.com/assets/img/products/corrugated-roofing-sheet.png",
+  },
+  {
+    name: "G.I Flat Sheet & PPGI Plain Sheet",
+    description:
+      "Cold rolled Galvanized steel, Pre-painted G.I Sheet cut for many lengths and gauges. We measure our success with Flatness, Quality, and Consistency.",
+    img: "https://nationalprofile.com/assets/img/gi-flat-sheet.png",
+  },
+  {
+    name: "Liner Profile",
+    description:
+      "An attractive, slightly fitted wall & ceiling cladding for exterior and interior use, on straight or curved surfaces.",
+    img: "https://nationalprofile.com/assets/img/products/liner-profile-product.png",
+  },
+  {
+    name:"Fun",
+    description:
+    "bdh",
+    img:"https://nationalprofile.com/assets/img/our-goal.png"
+  }
+];
