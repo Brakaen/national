@@ -73,8 +73,7 @@ export const products = {
       "2 - Other sizes & thicknesses are also available as per Customer request.",
     ],
   },
-
-  "drywall-partition-system": {
+     "drywall-partition-system": {
     title: "Drywall Partition System (RNR)",
     intro:
       "Drywall partition system is specifically designed for the partitions with Gypsum Board or other Types of cladding sheets. All system profiles are designed for internal partition in the aspect of residential and commercial constructions.",
