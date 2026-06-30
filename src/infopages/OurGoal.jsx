@@ -37,5 +37,4 @@ const OurGoal = () => {
     </section>
   );
 };
-
 export default OurGoal;
