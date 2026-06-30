@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const BASE = 'https://nationalprofile.com/assets/img';
 
@@ -150,315 +150,256 @@ const features = [
   },
 ];
 
-// ── Responsive helper hook ──────────────────────────────
-// Tracks viewport width and gives back simple breakpoint flags.
-function useViewport() {
-  const [width, setWidth] = useState(
-    typeof window !== 'undefined' ? window.innerWidth : 1200
-  );
+// ── Styles ────────────────────────────────────────────
+const s = {
+  bannerSlider: {
+    background: '#1a2b7a',
+    display: 'flex',
+    alignItems: 'center',
+    minHeight: '420px',
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  bannerContent: {
+    flex: 1,
+    padding: '3rem 3rem 3rem 4rem',
+    color: '#fff',
+  },
+  bannerTitle: {
+    fontSize: '32px',
+    fontWeight: 700,
+    color: '#fff',
+    marginBottom: '1rem',
+    lineHeight: 1.3,
+  },
+  bannerDesc: {
+    fontSize: '15px',
+    color: 'rgba(255,255,255,0.8)',
+    lineHeight: 1.8,
+    marginBottom: '1.5rem',
+    maxWidth: '480px',
+  },
+  bannerBtn: {
+    display: 'inline-block',
+    background: '#cc2929',
+    color: '#fff',
+    padding: '11px 26px',
+    borderRadius: '4px',
+    textDecoration: 'none',
+    fontSize: '14px',
+    fontWeight: 600,
+  },
+  bannerImg: {
+    flex: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '2rem',
+  },
+  bannerDots: {
+    position: 'absolute',
+    bottom: '20px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    display: 'flex',
+    gap: '8px',
+  },
+  dot: (active) => ({
+    width: active ? '24px' : '8px',
+    height: '8px',
+    borderRadius: '4px',
+    background: active ? '#cc2929' : 'rgba(255,255,255,0.4)',
+    cursor: 'pointer',
+    transition: 'all 0.3s',
+    border: 'none',
+  }),
 
-  useEffect(() => {
-    const onResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
+  // Our Goal
+  goalSection: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '3rem',
+    padding: '4rem 4rem',
+    background: '#fff',
+  },
+  goalImg: {
+    width: '380px',
+    flexShrink: 0,
+    borderRadius: '8px',
+    overflow: 'hidden',
+  },
+  goalContent: { flex: 1 },
+  goalEyebrow: {
+    fontSize: '13px',
+    fontWeight: 700,
+    color: '#cc2929',
+    textTransform: 'uppercase',
+    letterSpacing: '2px',
+    marginBottom: '10px',
+  },
+  goalTitle: {
+    fontSize: '30px',
+    fontWeight: 700,
+    color: '#1a2b7a',
+    marginBottom: '1rem',
+  },
+  goalText: {
+    fontSize: '15px',
+    color: '#5a6380',
+    lineHeight: 1.85,
+    marginBottom: '1.5rem',
+  },
+  goalBtn: {
+    display: 'inline-block',
+    background: '#cc2929',
+    color: '#fff',
+    padding: '10px 24px',
+    borderRadius: '4px',
+    textDecoration: 'none',
+    fontSize: '14px',
+    fontWeight: 600,
+  },
 
-  return {
-    width,
-    isMobile: width <= 576,
-    isTablet: width > 576 && width <= 992,
-    isDesktop: width > 992,
-  };
-}
+  // Products
+  productsSection: {
+    padding: '4rem 4rem',
+    background: '#f5f7fa',
+  },
+  productsHeader: {
+    textAlign: 'left',
+    marginBottom: '2.5rem',
+  },
+  sectionEyebrow: {
+    fontSize: '12px',
+    fontWeight: 700,
+    color: '#cc2929',
+    textTransform: 'uppercase',
+    letterSpacing: '2px',
+    marginBottom: '8px',
+  },
+  sectionTitle: {
+    fontSize: '30px',
+    fontWeight: 700,
+    color: '#1a2b7a',
+    marginBottom: '0.75rem',
+  },
+  sectionSubtitle: {
+    fontSize: '14px',
+    color: '#5a6380',
+    maxWidth: '680px',
+    margin: '0',
+    lineHeight: 1.7,
+  },
+  productGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gap: '20px',
+  },
+  productCard: {
+    background: '#fff',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    border: '1px solid #e2e6ef',
+    transition: 'transform 0.2s, box-shadow 0.2s',
+  },
+  productCardImg: {
+    width: '100%',
+    height: '180px',
+    objectFit: 'cover',
+    display: 'block',
+  },
+  productCardBody: {
+    padding: '1rem 1.1rem 1.25rem',
+  },
+  productCardTitle: {
+    fontSize: '14px',
+    fontWeight: 700,
+    color: '#1a2b7a',
+    marginBottom: '8px',
+    lineHeight: 1.4,
+  },
+  productCardDesc: {
+    fontSize: '12.5px',
+    color: '#5a6380',
+    lineHeight: 1.65,
+    marginBottom: '12px',
+  },
+  productCardLink: {
+    fontSize: '13px',
+    fontWeight: 600,
+    color: '#cc2929',
+    textDecoration: 'none',
+  },
+
+  // Features
+  featuresSection: {
+    padding: '4rem 4rem',
+    background: '#fff',
+  },
+  featuresTitle: {
+    fontSize: '30px',
+    fontWeight: 700,
+    color: '#1a2b7a',
+    marginBottom: '2.5rem',
+  },
+  featuresGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gap: '24px',
+  },
+  featureCard: {
+    background: '#fff',
+    border: '1px solid #e2e6ef',
+    borderRadius: '6px',
+    padding: '1.75rem',
+    display: 'flex',
+    gap: '1.25rem',
+    alignItems: 'flex-start',
+    transition: 'box-shadow 0.25s, transform 0.25s',
+    cursor: 'default',
+  },
+  featureIcon: {
+    width: '56px',
+    height: '56px',
+    borderRadius: '50%',
+    border: '2px solid #cc2929',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+    color: '#1a2b7a',
+  },
+  featureTitle: {
+    fontSize: '17px',
+    fontWeight: 700,
+    color: '#1a2b7a',
+    marginBottom: '6px',
+  },
+  featureUnderline: {
+    width: '32px',
+    height: '3px',
+    background: '#cc2929',
+    marginBottom: '10px',
+  },
+  featureDesc: {
+    fontSize: '13.5px',
+    color: '#5a6380',
+    lineHeight: 1.7,
+  },
+};
 
 // ── Component ─────────────────────────────────────────
 const Home = () => {
   const [current, setCurrent] = useState(0);
-  const { isMobile, isTablet } = useViewport();
-
   const prev = () => setCurrent((c) => (c - 1 + sliderProducts.length) % sliderProducts.length);
   const next = () => setCurrent((c) => (c + 1) % sliderProducts.length);
   const active = sliderProducts[current];
-
-  // ── Styles (built fresh each render so they react to breakpoints) ──
-  const s = {
-    bannerSlider: {
-      background: '#1a2b7a',
-      display: 'flex',
-      flexDirection: isMobile ? 'column' : 'row',
-      alignItems: 'center',
-      minHeight: isMobile ? 'auto' : '420px',
-      overflow: 'hidden',
-      position: 'relative',
-      padding: isMobile ? '2.5rem 0 3rem' : 0,
-    },
-    bannerContent: {
-      flex: 1,
-      padding: isMobile
-        ? '0 1.25rem'
-        : isTablet
-        ? '2rem 2rem'
-        : '3rem 3rem 3rem 4rem',
-      color: '#fff',
-      textAlign: isMobile ? 'center' : 'left',
-      order: isMobile ? 2 : 1,
-    },
-    bannerTitle: {
-      fontSize: isMobile ? '22px' : isTablet ? '26px' : '32px',
-      fontWeight: 700,
-      color: '#fff',
-      marginBottom: '1rem',
-      lineHeight: 1.3,
-    },
-    bannerDesc: {
-      fontSize: isMobile ? '13.5px' : '15px',
-      color: 'rgba(255,255,255,0.8)',
-      lineHeight: 1.8,
-      marginBottom: '1.5rem',
-      maxWidth: isMobile ? '100%' : '480px',
-      marginLeft: isMobile ? 'auto' : 0,
-      marginRight: isMobile ? 'auto' : 0,
-    },
-    bannerBtn: {
-      display: 'inline-block',
-      background: '#cc2929',
-      color: '#fff',
-      padding: isMobile ? '10px 22px' : '11px 26px',
-      borderRadius: '4px',
-      textDecoration: 'none',
-      fontSize: '14px',
-      fontWeight: 600,
-    },
-    bannerImg: {
-      flex: 1,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: isMobile ? '0.5rem 1.25rem' : '2rem',
-      order: isMobile ? 1 : 2,
-      width: isMobile ? '100%' : 'auto',
-    },
-    bannerDots: {
-      position: isMobile ? 'static' : 'absolute',
-      bottom: '20px',
-      left: '50%',
-      transform: isMobile ? 'none' : 'translateX(-50%)',
-      display: 'flex',
-      justifyContent: 'center',
-      gap: '8px',
-      marginTop: isMobile ? '1.25rem' : 0,
-      order: isMobile ? 3 : 'unset',
-    },
-    arrowBtn: (side) => ({
-      position: 'absolute',
-      [side]: isMobile ? '6px' : '12px',
-      top: '50%',
-      transform: 'translateY(-50%)',
-      background: 'rgba(255,255,255,0.15)',
-      border: 'none',
-      color: '#fff',
-      width: isMobile ? '28px' : '36px',
-      height: isMobile ? '28px' : '36px',
-      borderRadius: '50%',
-      fontSize: isMobile ? '15px' : '18px',
-      cursor: 'pointer',
-      zIndex: 2,
-    }),
-    dot: (active) => ({
-      width: active ? '24px' : '8px',
-      height: '8px',
-      borderRadius: '4px',
-      background: active ? '#cc2929' : 'rgba(255,255,255,0.4)',
-      cursor: 'pointer',
-      transition: 'all 0.3s',
-      border: 'none',
-    }),
-
-    // Our Goal
-    goalSection: {
-      display: 'flex',
-      flexDirection: isMobile || isTablet ? 'column' : 'row',
-      alignItems: isMobile || isTablet ? 'stretch' : 'center',
-      gap: isMobile ? '1.75rem' : '3rem',
-      padding: isMobile ? '2.5rem 1.25rem' : isTablet ? '3rem 2rem' : '4rem 4rem',
-      background: '#fff',
-    },
-    goalImg: {
-      width: isMobile || isTablet ? '100%' : '380px',
-      flexShrink: 0,
-      borderRadius: '8px',
-      overflow: 'hidden',
-    },
-    goalContent: { flex: 1 },
-    goalEyebrow: {
-      fontSize: '13px',
-      fontWeight: 700,
-      color: '#cc2929',
-      textTransform: 'uppercase',
-      letterSpacing: '2px',
-      marginBottom: '10px',
-    },
-    goalTitle: {
-      fontSize: isMobile ? '24px' : '30px',
-      fontWeight: 700,
-      color: '#1a2b7a',
-      marginBottom: '1rem',
-    },
-    goalText: {
-      fontSize: isMobile ? '14px' : '15px',
-      color: '#5a6380',
-      lineHeight: 1.85,
-      marginBottom: '1.5rem',
-    },
-    goalBtn: {
-      display: 'inline-block',
-      background: '#cc2929',
-      color: '#fff',
-      padding: '10px 24px',
-      borderRadius: '4px',
-      textDecoration: 'none',
-      fontSize: '14px',
-      fontWeight: 600,
-    },
-
-    // Products
-    productsSection: {
-      padding: isMobile ? '2.5rem 1.25rem' : isTablet ? '3rem 2rem' : '4rem 4rem',
-      background: '#f5f7fa',
-    },
-    productsHeader: {
-      textAlign: 'left',
-      marginBottom: isMobile ? '1.75rem' : '2.5rem',
-    },
-    sectionEyebrow: {
-      fontSize: '12px',
-      fontWeight: 700,
-      color: '#cc2929',
-      textTransform: 'uppercase',
-      letterSpacing: '2px',
-      marginBottom: '8px',
-    },
-    sectionTitle: {
-      fontSize: isMobile ? '24px' : '30px',
-      fontWeight: 700,
-      color: '#1a2b7a',
-      marginBottom: '0.75rem',
-    },
-    sectionSubtitle: {
-      fontSize: isMobile ? '13px' : '14px',
-      color: '#5a6380',
-      maxWidth: '680px',
-      margin: '0',
-      lineHeight: 1.7,
-    },
-    productGrid: {
-      display: 'grid',
-      gridTemplateColumns: isMobile
-        ? '1fr'
-        : isTablet
-        ? 'repeat(2, 1fr)'
-        : 'repeat(4, 1fr)',
-      gap: isMobile ? '16px' : '20px',
-    },
-    productCard: {
-      background: '#fff',
-      borderRadius: '8px',
-      overflow: 'hidden',
-      border: '1px solid #e2e6ef',
-      transition: 'transform 0.2s, box-shadow 0.2s',
-    },
-    productCardImg: {
-      width: '100%',
-      height: isMobile ? '160px' : '180px',
-      objectFit: 'cover',
-      display: 'block',
-    },
-    productCardBody: {
-      padding: '1rem 1.1rem 1.25rem',
-    },
-    productCardTitle: {
-      fontSize: '14px',
-      fontWeight: 700,
-      color: '#1a2b7a',
-      marginBottom: '8px',
-      lineHeight: 1.4,
-    },
-    productCardDesc: {
-      fontSize: '12.5px',
-      color: '#5a6380',
-      lineHeight: 1.65,
-      marginBottom: '12px',
-    },
-    productCardLink: {
-      fontSize: '13px',
-      fontWeight: 600,
-      color: '#cc2929',
-      textDecoration: 'none',
-    },
-
-    // Features
-    featuresSection: {
-      padding: isMobile ? '2.5rem 1.25rem' : isTablet ? '3rem 2rem' : '4rem 4rem',
-      background: '#fff',
-    },
-    featuresTitle: {
-      fontSize: isMobile ? '24px' : '30px',
-      fontWeight: 700,
-      color: '#1a2b7a',
-      marginBottom: isMobile ? '1.75rem' : '2.5rem',
-    },
-    featuresGrid: {
-      display: 'grid',
-      gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
-      gap: isMobile ? '16px' : '24px',
-    },
-    featureCard: {
-      background: '#fff',
-      border: '1px solid #e2e6ef',
-      borderRadius: '6px',
-      padding: isMobile ? '1.35rem' : '1.75rem',
-      display: 'flex',
-      flexDirection: isMobile ? 'column' : 'row',
-      gap: isMobile ? '0.85rem' : '1.25rem',
-      alignItems: isMobile ? 'flex-start' : 'flex-start',
-      transition: 'box-shadow 0.25s, transform 0.25s',
-      cursor: 'default',
-    },
-    featureIcon: {
-      width: '56px',
-      height: '56px',
-      borderRadius: '50%',
-      border: '2px solid #cc2929',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexShrink: 0,
-      color: '#1a2b7a',
-    },
-    featureTitle: {
-      fontSize: '17px',
-      fontWeight: 700,
-      color: '#1a2b7a',
-      marginBottom: '6px',
-    },
-    featureUnderline: {
-      width: '32px',
-      height: '3px',
-      background: '#cc2929',
-      marginBottom: '10px',
-    },
-    featureDesc: {
-      fontSize: '13.5px',
-      color: '#5a6380',
-      lineHeight: 1.7,
-    },
-  };
 
   return (
     <div>
       {/* ── Product Banner Slider ── */}
       <div style={s.bannerSlider}>
-        <button onClick={prev} style={s.arrowBtn('left')}>‹</button>
+        <button onClick={prev} style={{ position:'absolute', left:'12px', top:'50%', transform:'translateY(-50%)', background:'rgba(255,255,255,0.15)', border:'none', color:'#fff', width:'36px', height:'36px', borderRadius:'50%', fontSize:'18px', cursor:'pointer', zIndex:2 }}>‹</button>
 
         <div style={s.bannerContent}>
           <h2 style={s.bannerTitle}>{active.title}</h2>
@@ -467,18 +408,10 @@ const Home = () => {
         </div>
 
         <div style={s.bannerImg}>
-          <img
-            src={active.img}
-            alt={active.title}
-            style={{
-              maxWidth: '100%',
-              maxHeight: isMobile ? '220px' : '340px',
-              objectFit: 'contain',
-            }}
-          />
+          <img src={active.img} alt={active.title} style={{ maxWidth:'100%', maxHeight:'340px', objectFit:'contain' }} />
         </div>
 
-        <button onClick={next} style={s.arrowBtn('right')}>›</button>
+        <button onClick={next} style={{ position:'absolute', right:'12px', top:'50%', transform:'translateY(-50%)', background:'rgba(255,255,255,0.15)', border:'none', color:'#fff', width:'36px', height:'36px', borderRadius:'50%', fontSize:'18px', cursor:'pointer', zIndex:2 }}>›</button>
 
         <div style={s.bannerDots}>
           {sliderProducts.map((_, i) => (
@@ -490,7 +423,7 @@ const Home = () => {
       {/* ── Our Goal Section ── */}
       <div style={s.goalSection}>
         <div style={s.goalImg}>
-          <img src={`${BASE}/our-goal.png`} alt="Our Goal" style={{ width: '100%', display: 'block' }} />
+          <img src={`${BASE}/our-goal.png`} alt="Our Goal" style={{ width:'100%', display:'block' }} />
         </div>
         <div style={s.goalContent}>
           <p style={s.goalEyebrow}></p>
@@ -516,8 +449,8 @@ const Home = () => {
             <div
               key={p.id}
               style={s.productCard}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 28px rgba(26,43,122,0.12)'; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}
+              onMouseEnter={e => { e.currentTarget.style.transform='translateY(-4px)'; e.currentTarget.style.boxShadow='0 12px 28px rgba(26,43,122,0.12)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform='none'; e.currentTarget.style.boxShadow='none'; }}
             >
               <img src={p.img} alt={p.title} style={s.productCardImg} />
               <div style={s.productCardBody}>
