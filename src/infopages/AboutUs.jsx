@@ -4,8 +4,7 @@ const AboutUs = () => {
     { label: "Home", path: "/" },
     { label: "About Us" },
   ];
-
-  return (
+return (
     <div>
       <div
         className="relative text-white py-16 px-8"
