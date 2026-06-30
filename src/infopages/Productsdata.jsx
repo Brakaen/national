@@ -215,3 +215,4 @@ export const products = {
     note: [],
   },
 };
+export default Productsdata;
