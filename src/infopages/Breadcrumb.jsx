@@ -5,8 +5,7 @@ const Breadcrumb = ({ items = [] }) => {
   const navigate = useNavigate();
 
   if (!items || items.length === 0) return null;
-
-  return (
+return (
     <nav aria-label="Breadcrumb">
       <ol className="flex items-center flex-wrap gap-1 text-sm">
         {items.map((item, index) => {
