@@ -111,18 +111,42 @@ const features = [
   {
     title: 'Life Safety Protection',
     desc: 'System provides permanent fire resistance not subject to loss of water pressure or other malfunctions & problems that may occur in sprinkler systems.',
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+    ),
   },
   {
     title: 'Fast Installation',
     desc: 'Gypsum constructions eliminate the construction delays, permit earlier completion & occupancy of buildings.',
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06A2 2 0 1 1 7.04 4.3l.06.06A1.65 1.65 0 0 0 8.91 4.7 1.65 1.65 0 0 0 9.91 3.19V3a2 2 0 0 1 4 0v.09c0 .69.39 1.32 1 1.51.62.25 1.34.12 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.3 9c.25.62.85 1 1.54 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+      </svg>
+    ),
   },
   {
     title: 'Low Installed Cost',
     desc: 'Gypsum board system offer lower installed costs than more massive constructions. Low material cost & large, quickly erected panels combine to provide a lower cost.',
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        <path d="M12 8v8M9.5 10.5h3.2a1.5 1.5 0 0 1 0 3H9.5h3.2a1.5 1.5 0 0 1 0 3H9" />
+      </svg>
+    ),
   },
   {
     title: 'Light Weight',
     desc: 'Gypsum board constructions weigh much less than masonry assemblies of the same thickness.',
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 18c4-4 8-2 10-6 1.5-3 4-4 6-3" />
+        <path d="M2 13c4-4 8-2 10-6 1.5-3 4-4 6-3" />
+      </svg>
+    ),
   },
 ];
 
@@ -310,50 +334,56 @@ const s = {
   // Features
   featuresSection: {
     padding: '4rem 4rem',
-    background: '#1a2b7a',
+    background: '#fff',
   },
   featuresTitle: {
-    fontSize: '28px',
+    fontSize: '30px',
     fontWeight: 700,
-    color: '#fff',
-    textAlign: 'center',
+    color: '#1a2b7a',
     marginBottom: '2.5rem',
   },
   featuresGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr)',
-    gap: '20px',
-    maxWidth: '900px',
-    margin: '0 auto',
+    gap: '24px',
   },
   featureCard: {
-    background: 'rgba(255,255,255,0.07)',
-    border: '1px solid rgba(255,255,255,0.12)',
-    borderRadius: '8px',
-    padding: '1.5rem',
+    background: '#fff',
+    border: '1px solid #e2e6ef',
+    borderRadius: '6px',
+    padding: '1.75rem',
     display: 'flex',
-    gap: '1rem',
+    gap: '1.25rem',
     alignItems: 'flex-start',
+    transition: 'box-shadow 0.25s, transform 0.25s',
+    cursor: 'default',
   },
   featureIcon: {
-    width: '40px',
-    height: '40px',
-    borderRadius: '8px',
-    background: '#cc2929',
+    width: '56px',
+    height: '56px',
+    borderRadius: '50%',
+    border: '2px solid #cc2929',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexShrink: 0,
+    color: '#1a2b7a',
   },
   featureTitle: {
-    fontSize: '15px',
+    fontSize: '17px',
     fontWeight: 700,
-    color: '#fff',
+    color: '#1a2b7a',
     marginBottom: '6px',
   },
+  featureUnderline: {
+    width: '32px',
+    height: '3px',
+    background: '#cc2929',
+    marginBottom: '10px',
+  },
   featureDesc: {
-    fontSize: '13px',
-    color: 'rgba(255,255,255,0.65)',
+    fontSize: '13.5px',
+    color: '#5a6380',
     lineHeight: 1.7,
   },
 };
@@ -438,12 +468,24 @@ const Home = () => {
         <h2 style={s.featuresTitle}>Features</h2>
         <div style={s.featuresGrid}>
           {features.map((f, i) => (
-            <div key={i} style={s.featureCard}>
-              <div style={s.featureIcon}>
-                <img src={`${BASE}/our-goal.png`} alt="" style={{ width:'22px', height:'22px', objectFit:'contain', opacity:0.9 }} />
-              </div>
+            <div
+              key={i}
+              style={s.featureCard}
+              onMouseEnter={e => {
+                e.currentTarget.style.boxShadow = '6px 6px 0px rgba(204,41,41,0.25)';
+                e.currentTarget.style.transform = 'translate(-3px,-3px)';
+                e.currentTarget.style.borderColor = '#1a2b7a';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.transform = 'none';
+                e.currentTarget.style.borderColor = '#e2e6ef';
+              }}
+            >
+              <div style={s.featureIcon}>{f.icon}</div>
               <div>
                 <h3 style={s.featureTitle}>{f.title}</h3>
+                <div style={s.featureUnderline}></div>
                 <p style={s.featureDesc}>{f.desc}</p>
               </div>
             </div>
