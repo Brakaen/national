@@ -15,9 +15,10 @@ const App = () => {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<ContactUs />} />
-       <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
     </BrowserRouter>
   );
 };
+
 export default App;
