@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Breadcrumb from "./Breadcrumb";
+import Breadcrumb from "../components/common/Breadcrumb";
 
 const BASE = "https://nationalprofile.com/assets/img";
 

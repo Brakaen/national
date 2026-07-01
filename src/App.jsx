@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import WhatsAppButton from "./components/WhatsAppButton";
+import Navbar from "./components/common/Navbar";
+import WhatsAppButton from "./components/common/WhatsAppButton";
 import Home from "./infopages/Home";
 import AboutUs from "./infopages/AboutUs";
 import Products from "./infopages/Products";

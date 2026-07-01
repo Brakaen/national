@@ -214,50 +214,65 @@ const s = {
     border: 'none',
   }),
 
-  // Our Goal
+  // Our Goal (new design)
   goalSection: {
+    background: '#f0f4ff',
+    padding: '80px 48px',
+  },
+  goalInner: {
+    maxWidth: '1100px',
+    margin: '0 auto',
     display: 'flex',
     alignItems: 'center',
-    gap: '3rem',
-    padding: '4rem 4rem',
-    background: '#fff',
+    gap: '64px',
+  },
+  goalImgWrap: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
   },
   goalImg: {
-    width: '380px',
-    flexShrink: 0,
-    borderRadius: '8px',
-    overflow: 'hidden',
+    width: '100%',
+    maxWidth: '420px',
+    objectFit: 'contain',
   },
   goalContent: { flex: 1 },
   goalEyebrow: {
-    fontSize: '13px',
-    fontWeight: 700,
-    color: '#cc2929',
-    textTransform: 'uppercase',
+    color: '#ef4444',
+    fontWeight: 600,
     letterSpacing: '2px',
-    marginBottom: '10px',
+    textTransform: 'uppercase',
+    marginBottom: '8px',
   },
   goalTitle: {
-    fontSize: '30px',
+    fontSize: '2rem',
     fontWeight: 700,
-    color: '#1a2b7a',
-    marginBottom: '1rem',
+    color: '#1e3a8a',
+    marginBottom: '12px',
+  },
+  goalUnderline: {
+    width: '60px',
+    height: '4px',
+    background: '#ef4444',
+    marginBottom: '20px',
+    borderRadius: '2px',
   },
   goalText: {
-    fontSize: '15px',
-    color: '#5a6380',
-    lineHeight: 1.85,
-    marginBottom: '1.5rem',
+    color: '#4b5563',
+    lineHeight: 1.9,
+    marginBottom: '28px',
   },
   goalBtn: {
-    display: 'inline-block',
-    background: '#cc2929',
+    background: '#ef4444',
     color: '#fff',
-    padding: '10px 24px',
-    borderRadius: '4px',
-    textDecoration: 'none',
-    fontSize: '14px',
+    border: 'none',
+    padding: '12px 32px',
+    borderRadius: '999px',
     fontWeight: 600,
+    fontSize: '1rem',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    display: 'inline-block',
   },
 
   // Products
@@ -420,18 +435,21 @@ const Home = () => {
         </div>
       </div>
 
-      {/* ── Our Goal Section ── */}
+      {/* ── Our Goal Section (new design) ── */}
       <div style={s.goalSection}>
-        <div style={s.goalImg}>
-          <img src={`${BASE}/our-goal.png`} alt="Our Goal" style={{ width:'100%', display:'block' }} />
-        </div>
-        <div style={s.goalContent}>
-          <p style={s.goalEyebrow}></p>
-          <h2 style={s.goalTitle}>Our Goal</h2>
-          <p style={s.goalText}>
-            National Profile Factory complies with requirements of the ISO 9001 Revision 2015 and covers the manufacturing, supply, sales and marketing of Cold rolled profile of False ceiling Suspension System, Drywall Partition System, GI Lintel, Roofing Sheet, Cut to length and C-Truss Channel and wire clips used in false ceiling suspension.
-          </p>
-          <a href="/about-us" style={s.goalBtn}>Read More</a>
+        <div style={s.goalInner}>
+          <div style={s.goalImgWrap}>
+            <img src={`${BASE}/our-goal.png`} alt="Our Goal" style={s.goalImg} />
+          </div>
+          <div style={s.goalContent}>
+            <p style={s.goalEyebrow}></p>
+            <h2 style={s.goalTitle}>Our Goal</h2>
+            <div style={s.goalUnderline}></div>
+            <p style={s.goalText}>
+              National Profile Factory complies with requirements of the ISO 9001 Revision 2015 and covers the manufacturing, supply, sales and marketing of Cold rolled profile of False ceiling Suspension System, Drywall Partition System, GI Lintel, Roofing Sheet, Cut to length and C-Truss Channel and wire clips used in false ceiling suspension.
+            </p>
+            <a href="/about-us" style={s.goalBtn}>Read More</a>
+          </div>
         </div>
       </div>
 

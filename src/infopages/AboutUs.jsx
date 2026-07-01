@@ -1,4 +1,4 @@
-import Breadcrumb from "./Breadcrumb";
+import Breadcrumb from "../components/common/Breadcrumb";
 const AboutUs = () => {
   const breadcrumbItems = [
     { label: "Home", path: "/" },
