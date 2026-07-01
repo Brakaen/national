@@ -10,22 +10,23 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       {/* ── Top Info Bar ── */}
-      <div className="bg-blue-900 text-white text-xs sm:text-sm py-2 sm:py-3 px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-2 text-center sm:text-left">
+      <div className="bg-blue-900 text-white text-[10px] xs:text-xs sm:text-sm py-2 sm:py-3 px-2 sm:px-8 flex flex-row justify-between items-center gap-1">
         <a
           href="mailto:info@nationalprofile.com"
-          className="hover:underline truncate max-w-full"
+          className="hover:underline truncate flex-1 text-left"
         >
-          ✉ info@nationalprofile.com
+          ✉ <span className="hidden xs:inline">info@nationalprofile.com</span>
+          <span className="xs:hidden">Email</span>
         </a>
         <a
           href="#"
-          className="hover:underline font-bold whitespace-nowrap"
+          className="hover:underline font-bold whitespace-nowrap text-center flex-shrink-0"
         >
           ⬇ Download Brochure
         </a>
         <a
           href="tel:+97317641999"
-          className="hover:underline whitespace-nowrap"
+          className="hover:underline whitespace-nowrap text-right flex-1"
         >
           📞 +973 17 641 999
         </a>
