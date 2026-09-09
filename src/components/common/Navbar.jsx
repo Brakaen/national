@@ -18,12 +18,12 @@ const Navbar = () => {
           ✉ <span className="hidden xs:inline">info@nationalprofile.com</span>
           <span className="xs:hidden">Email</span>
         </a>
-        <a
-          href="#"
+        <Link
+          to="/about"
           className="hover:underline font-bold whitespace-nowrap text-center flex-shrink-0"
         >
           ⬇ Download Brochure
-        </a>
+        </Link>
         <a
           href="tel:+97317641999"
           className="hover:underline whitespace-nowrap text-right flex-1"
